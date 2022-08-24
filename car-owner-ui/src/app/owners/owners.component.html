@@ -1,0 +1,27 @@
+<div class="container" *ngIf="(owners && owners.length > 0); else noOwners">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let owner of owners" class="pointable" (click)="showDetails(owner.id)">
+        <td>
+          {{ owner.id }}
+        </td>
+        <td>
+          {{ owner.firstName }}
+        </td>
+        <td>
+          {{ owner.lastName }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noOwners>
+  <h1>No owners visible</h1>
+</ng-template>
