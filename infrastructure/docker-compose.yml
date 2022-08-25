@@ -4,8 +4,8 @@ services:
   carowner-service:
     container_name: carowner-service
     build:
-      context: ..
-      dockerfile: ./car-owner-service/Dockerfile
+      context: ../car-owner-service
+      dockerfile: ./Dockerfile
     ports:
       - 8080:8080
       - 5005:5005
@@ -15,8 +15,26 @@ services:
       - DB_PASSWORD=admin
     networks:
       carownernet:
+    healthcheck:
+      test: ["CMD", "wget", "--tries=1", "--spider", "http://carowner-service:8080/owner/list"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
     depends_on:
       postgres_carowner_db:
+        condition: service_healthy
+
+  carowner-ui:
+    container_name: carowner-ui
+    build:
+      context: ../car-owner-ui
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+    networks:
+      carownernet:
+    depends_on:
+      carowner-service:
         condition: service_healthy
 
   postgres_carowner_db:

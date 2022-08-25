@@ -1,24 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {OwnerService} from '../shared/service/owner.service';
 import {Owner} from '../shared/entities/owner.type';
+import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-owners',
   templateUrl: './owners.component.html',
   styleUrls: ['./owners.component.css']
 })
-export class OwnersComponent implements OnInit {
+export class OwnersComponent implements OnInit, OnDestroy {
   owners: Owner[] = [];
-
-  constructor(private ownerService: OwnerService) { }
+  subs: Subscription[] = [];
+  constructor(
+    private ownerService: OwnerService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.ownerService.getOwnerList().subscribe((ownersResponse: any[]) => {
+    this.subs.push(this.ownerService.getOwnerList().subscribe((ownersResponse: any[]) => {
       this.owners = ownersResponse;
-    })
+    }));
   }
 
   showDetails(id: number) {
-    console.log(id);
+    this.router.navigate(['/owner', id]);
+  }
+
+  ngOnDestroy(): void {
+    for (let sub of this.subs) {
+      sub.unsubscribe();
+    }
   }
 }

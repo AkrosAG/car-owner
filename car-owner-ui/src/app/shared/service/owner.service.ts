@@ -14,4 +14,10 @@ export class OwnerService {
       return response as Owner[];
     }));
   }
+
+  getOwner(id: number): Observable<any> {
+    return this.http.get('http://localhost:8080/owner/' + id).pipe(map(response => {
+      return response as Owner;
+    }));
+  }
 }

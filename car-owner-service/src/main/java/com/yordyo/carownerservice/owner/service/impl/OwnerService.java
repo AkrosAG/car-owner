@@ -54,7 +54,7 @@ public class OwnerService implements IOwnerService {
   @Override
   public OwnerDTO getOwner(Long id) {
     Optional<Owner> owner = ownerRepository.findById(id);
-    return owner.map(o -> DTOConverters.mapToDto(o, false)).orElse(null);
+    return owner.map(o -> DTOConverters.mapToDto(o, true)).orElse(null);
   }
 
   @Override

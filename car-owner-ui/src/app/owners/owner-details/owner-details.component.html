@@ -1,1 +1,57 @@
-<p>owner-details works!</p>
+<div class="container" *ngIf="owner">
+  <div class="row justify-content-md-center">
+    <div class="col col-md-2 text-center"><h2>{{ owner.firstName }}</h2></div>
+    <div class="col col-md-2 text-center"><h2>{{ owner.lastName }}</h2></div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col col-md-auto text-center"><h4>Registered: {{ owner.created | date }}</h4></div>
+  </div>
+  <hr>
+  <span *ngFor="let car of owner.cars">
+    <div class="row justify-content-md-center">
+      <div class="col">
+        <p class="fw-bolder">{{ car.manufacturer }} {{ car.model }}</p>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col text-center">
+        <p class="fw-bold">Type</p>
+      </div>
+      <div class="col text-center">
+        <p class="fw-bold">Engine size</p>
+      </div>
+      <div class="col text-center">
+        <p class="fw-bold">HP</p>
+      </div>
+      <div class="col text-center">
+        <p class="fw-bold">Seats</p>
+      </div>
+      <div class="col text-center">
+        <p class="fw-bold">Manufactured</p>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col text-center">
+        {{ car.data.type }}
+      </div>
+      <div class="col text-center">
+        {{ car.data.engineSize }}
+      </div>
+      <div class="col text-center">
+        {{ car.data.hp }}
+      </div>
+      <div class="col text-center">
+        {{ car.data.seats }}
+      </div>
+      <div class="col text-center">
+        {{ car.data.manufacturedYear }}
+      </div>
+    </div>
+    <hr>
+  </span>
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <button class="btn btn-primary" [routerLink]="['']">Back</button>
+    </div>
+  </div>
+</div>

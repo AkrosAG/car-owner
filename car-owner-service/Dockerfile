@@ -1,13 +1,13 @@
-FROM maven:3.6.3-jdk-11 AS builder
+FROM maven:3.8.6-jdk-11 AS builder
 WORKDIR /usr/local/app/car-owner-service
 
-COPY ./car-owner-service/pom.xml ./
+COPY ./pom.xml ./
 RUN mvn dependency:go-offline
 
-COPY ./car-owner-service/ ./
+COPY ./ ./
 RUN mvn clean package
 
-FROM openjdk:11-jre-slim AS deploy
+FROM eclipse-temurin:11-alpine AS deploy
 
 EXPOSE 8080 8080
 
