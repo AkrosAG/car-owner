@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: car-service
+  template:
+    metadata:
+      labels:
+        component: car-service
+    spec:
+      containers:
+        - name: car-service
+          image: localhost:5000/car-owner-service:0.0.1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://database-node-service:5432/carowner
+            - name: DB_USERNAME
+              value: admin
+            - name: DB_PASSWORD
+              value: admin

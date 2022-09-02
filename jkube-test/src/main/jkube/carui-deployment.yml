@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-ui-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: car-ui
+  template:
+    metadata:
+      labels:
+        component: car-ui
+    spec:
+      containers:
+        - name: car-ui
+          image: localhost:5000/car-owner-ui:0.0.1
+          ports:
+            - containerPort: 80

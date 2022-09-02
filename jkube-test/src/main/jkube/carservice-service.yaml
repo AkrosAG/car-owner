@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-service-node-service
+spec:
+  type: NodePort
+  selector:
+    component: car-service
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31501

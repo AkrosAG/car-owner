@@ -1,0 +1,5 @@
+FROM nginx:stable AS deploy
+
+COPY ./build /usr/share/nginx/html/
+
+EXPOSE 80 80
