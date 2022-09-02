@@ -13,7 +13,7 @@ spec:
         component: car-ui
     spec:
       containers:
-        - name: car-ui
-          image: localhost:5000/car-owner-ui:0.0.1
+        - name: car-ui-container
+          image: localhost:5000/car-owner-ui
           ports:
             - containerPort: 80

@@ -17,6 +17,7 @@
       <artifactId>kubernetes-maven-plugin</artifactId>
       <version>${jkube.version}</version>
     </dependency>
+
   </dependencies>
   <build>
     <plugins>
@@ -35,7 +36,6 @@
                   <name>build</name>
                 </assembly>
                 <cleanup>remove</cleanup>
-                <tags>0.0.1</tags>
               </build>
             </image>
             <image>
@@ -47,7 +47,6 @@
                 <assembly>
                   <name>build</name>
                 </assembly>
-                <tags>0.0.1</tags>
               </build>
             </image>
           </images>

@@ -8,5 +8,5 @@ spec:
     component: database-service
   ports:
     - port: 5432
-      target: 5432
+      targetPort: 5432
       nodePort: 31502

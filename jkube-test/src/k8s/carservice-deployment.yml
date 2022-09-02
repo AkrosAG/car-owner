@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: car-service
-          image: localhost:5000/car-owner-service:0.0.1
+          image: localhost:5000/car-owner-service
           ports:
             - containerPort: 8080
           env:
