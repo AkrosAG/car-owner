@@ -32,10 +32,10 @@
               <build>
                 <contextDir>${project.basedir}/../car-owner-service/target</contextDir>
                 <dockerFile>${project.basedir}/../car-owner-service/Dockerfile.prod</dockerFile>
+                <cleanup>remove</cleanup>
                 <assembly>
                   <name>build</name>
                 </assembly>
-                <cleanup>remove</cleanup>
               </build>
             </image>
             <image>
@@ -50,6 +50,11 @@
               </build>
             </image>
           </images>
+          <enricher>
+            <excludes>
+              <exclude>jkube-controller</exclude>
+            </excludes>
+          </enricher>
         </configuration>
       </plugin>
     </plugins>
