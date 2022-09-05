@@ -10,13 +10,13 @@ export class OwnerService {
   constructor(private http: HttpClient) {}
 
   getOwnerList(): Observable<any> {
-    return this.http.get('http://localhost:8080/owner/list').pipe(map(response => {
+    return this.http.get('/api/owner/list').pipe(map(response => {
       return response as Owner[];
     }));
   }
 
   getOwner(id: number): Observable<any> {
-    return this.http.get('http://localhost:8080/owner/' + id).pipe(map(response => {
+    return this.http.get('/api/owner/' + id).pipe(map(response => {
       return response as Owner;
     }));
   }

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.yordyo</groupId>
+  <artifactId>car-owner-ui</artifactId>
+  <version>0.0.1</version>
+  <properties>
+    <java.version>11</java.version>
+    <docker.context>${project.basedir}/dist</docker.context>
+    <docker.file>${project.basedir}/Dockerfile</docker.file>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.12.1</version>
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <configuration>
+              <nodeVersion>v16.14.2</nodeVersion>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <id>copy-resource-one</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/dist</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}</directory>
+                  <includes>
+                    <include>nginx.conf</include>
+                    <include>Dockerfile</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.jkube</groupId>
+        <artifactId>kubernetes-maven-plugin</artifactId>
+        <version>1.8.0</version>
+        <configuration>
+          <images>
+            <image>
+              <name>localhost:5000/car-owner-ui:0.0.1</name>
+              <build>
+                <contextDir>${docker.context}</contextDir>
+                <dockerFile>${docker.file}</dockerFile>
+
+<!--                <assembly>-->
+<!--                  &lt;!&ndash; ... &ndash;&gt;-->
+<!--                  <layers>-->
+<!--                    <layer>-->
+<!--                      <id>nginx-config</id>-->
+<!--                      <files>-->
+<!--                        <file>-->
+<!--                          <source>nginx.conf</source>-->
+<!--                          <outputDirectory>/</outputDirectory>-->
+<!--                        </file>-->
+<!--                        <file>-->
+<!--                          <source>Dockerfile</source>-->
+<!--                          <outputDirectory>/</outputDirectory>-->
+<!--                        </file>-->
+<!--                      </files>-->
+<!--                    </layer>-->
+<!--                    <layer>-->
+<!--                      <id>compiled sources</id>-->
+<!--                      <fileSets>-->
+<!--                        <fileSet>-->
+<!--                          <directory>car-owner-ui</directory>-->
+<!--                          <outputDirectory>car-owner-ui</outputDirectory>-->
+<!--                        </fileSet>-->
+<!--                      </fileSets>-->
+<!--                    </layer>-->
+<!--                  </layers>-->
+<!--                </assembly>-->
+              </build>
+            </image>
+          </images>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

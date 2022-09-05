@@ -15,6 +15,8 @@
 	<description>Car owner service</description>
 	<properties>
 		<java.version>11</java.version>
+		<docker.context>${project.build.outputDirectory}</docker.context>
+		<docker.file>${project.basedir}/Dockerfile</docker.file>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,6 +68,23 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jkube</groupId>
+				<artifactId>kubernetes-maven-plugin</artifactId>
+				<version>1.8.0</version>
+
+				<configuration>
+					<images>
+						<image>
+							<name>localhost:5000/car-owner-service:0.0.4</name>
+							<build>
+								<contextDir>${docker.context}</contextDir>
+								<dockerFile>${docker.file}</dockerFile>
+							</build>
+						</image>
+					</images>
 				</configuration>
 			</plugin>
 		</plugins>
