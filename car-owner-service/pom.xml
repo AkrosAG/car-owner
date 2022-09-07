@@ -78,7 +78,7 @@
 				<configuration>
 					<images>
 						<image>
-							<name>localhost:5000/car-owner-service:0.0.4</name>
+							<name>localhost:5000/car-owner-service:0.0.5</name>
 							<build>
 								<contextDir>${docker.context}</contextDir>
 								<dockerFile>${docker.file}</dockerFile>
