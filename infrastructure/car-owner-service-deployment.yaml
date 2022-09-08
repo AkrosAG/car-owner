@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kub-car-owner-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kub-car-owner-service
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: kub-car-owner-service
+        tier: backend
+    spec:
+      containers:
+        - name: kub-car-owner-spring
+          image: localhost:5000/kub-car-owner-service
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,5 @@
+.main-container {
+  margin: 20px 40px;
+  background: white;
+  -webkit-box-shadow: 0 0 60px 0 rgb(0 0 0 / 60%);
+}

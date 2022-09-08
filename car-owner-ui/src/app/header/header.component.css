@@ -1,0 +1,80 @@
+.header-content {
+  padding: 10px 15px 30px 15px;
+}
+
+.breadcrumb-languages {
+  display: flex;
+  flex-direction: row;
+}
+
+.breadcrumb-languages > * {
+  flex: 1
+}
+
+.breadcrumb {
+  text-align: start;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.languages {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.8em;
+  margin-right: -25px;
+}
+
+.logo-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+.search {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.logo > img {
+  padding-right: 2em;
+  border-right: 1px solid #e5e5e5;
+}
+
+.logo > h6 {
+  padding-left: 2em;
+  color: #000;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+mat-nav-list.list-horizontal {
+  display: flex;
+  flex-direction: row;
+  padding: 0 !important;
+}
+
+mat-nav-list.inner-list-horizontal {
+  display: flex;
+  flex-direction: row;
+  padding: 0 8px !important;
+}
+
+mat-nav-list.inner-list-horizontal.mat-list-item-content {
+  padding: 0 0 !important;
+}
+
+mat-nav-list.list-horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+
