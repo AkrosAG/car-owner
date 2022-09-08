@@ -1,0 +1,19 @@
+.fisco-header-fixed-top {
+    height: 50px;
+    width: 1200px;
+    margin: auto;
+    display: flex;
+
+}
+
+.fisco-navigation {
+    width: 1200px;
+    margin: auto;
+    top: 51px;
+    margin-top: 10px;
+}
+
+.fisco-main-content {
+    width: 1200px;
+    margin: auto;
+}

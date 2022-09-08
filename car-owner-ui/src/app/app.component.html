@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+
+
+<header class="fisco-header-fixed-top">
+    <a href="#"><img src="assets/images/logo-CH.svg" alt="Logo Bund"/></a>
+    <div class="fisco-title-text">Title text</div>
+</header>
+<nav class="fisco-navigation">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+</nav>
+<div class="fisco-main-content">
+    <router-outlet></router-outlet>
+</div>
+
+
+
+<app-breadcrumbs [breadcrumbs]="testBreadcrumbs"></app-breadcrumbs>

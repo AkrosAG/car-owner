@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class OwnersComponent implements OnInit, OnDestroy {
   owners: Owner[] = [];
   subs: Subscription[] = [];
+  columnsToDisplay = ['id', 'firstName', 'lastName'];
   constructor(
     private ownerService: OwnerService,
     private router: Router) { }
