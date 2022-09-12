@@ -117,7 +117,7 @@ $ui-template-accent: mat.define-palette($accent-palette);
 $ui-template-warn: mat.define-palette($warn-palette);
 
 $custom-typography: mat.define-typography-config(
-  $font-family: Brand-yolq
+  $font-family: "Brand-yolq"
 );
 
 // Create the theme object. A theme consists of configurations for individual
