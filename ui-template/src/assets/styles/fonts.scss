@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/HelveticaNeue.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Material Icons";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/MaterialIcons-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Material Icons Outlined";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/MaterialIconsOutlined-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Material Icons Round";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/MaterialIconsRound-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Material Icons Sharp";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/MaterialIconsSharp-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Material Icons Two Tone";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/MaterialIconsTwoTone-Regular.otf") format("truetype");
+}
+
+.material-icons {
+  display: inline-block;
+  font-family: "Material Icons", sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga";
+}
+
+.material-icons-outlined {
+  @extend .material-icons;
+  font-family: "Material Icons Outlined", sans-serif;
+}
+
+.material-icons-round {
+  @extend .material-icons;
+  font-family: "Material Icons Round", sans-serif;
+}
+
+.material-icons-sharp {
+  @extend .material-icons;
+  font-family: "Material Icons Sharp", sans-serif;
+}
+
+.material-icons-two-tone {
+  @extend .material-icons;
+  font-family: "Material Icons Two Tone", sans-serif;
+}

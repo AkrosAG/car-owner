@@ -1,39 +1,133 @@
+@use "@angular/material" as mat;
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
-// Plus imports for other components in your app.
+@import "assets/styles/colors.scss";
+@import "src/assets/styles/fonts.scss";
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$ui-template-primary: mat.define-palette(mat.$indigo-palette);
-$ui-template-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$primary-palette: (
+  50: $primary,
+  100: $primary,
+  200: $primary,
+  300: $primary,
+  400: $primary,
+  500: $primary,
+  600: $primary,
+  700: $primary,
+  800: $primary,
+  900: $primary,
+  A100: $primary,
+  A200: $primary,
+  A400: $primary,
+  A700: $primary,
+  contrast: (
+    50: $white,
+    100: $white,
+    200: $white,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $white,
+    A200: $white,
+    A400: $white,
+    A700: $white,
+  )
+);
+$accent-palette: (
+  50: $accent,
+  100: $accent,
+  200: $accent,
+  300: $accent,
+  400: $accent,
+  500: $accent,
+  600: $accent,
+  700: $accent,
+  800: $accent,
+  900: $accent,
+  A100: $accent,
+  A200: $accent,
+  A400: $accent,
+  A700: $accent,
+  contrast: (
+    50: $accent,
+    100: $accent,
+    200: $accent,
+    300: $accent,
+    400: $accent,
+    500: $accent,
+    600: $accent,
+    700: $accent,
+    800: $accent,
+    900: $accent,
+    A100: $accent,
+    A200: $accent,
+    A400: $accent,
+    A700: $accent,
+  )
+);
+$warn-palette: (
+  50: $warn,
+  100: $warn,
+  200: $warn,
+  300: $warn,
+  400: $warn,
+  500: $warn,
+  600: $warn,
+  700: $warn,
+  800: $warn,
+  900: $warn,
+  A100: $warn,
+  A200: $warn,
+  A400: $warn,
+  A700: $warn,
+  contrast: (
+    50: $warn,
+    100: $warn,
+    200: $warn,
+    300: $warn,
+    400: $warn,
+    500: $warn,
+    600: $warn,
+    700: $warn,
+    800: $warn,
+    900: $warn,
+    A100: $warn,
+    A200: $warn,
+    A400: $warn,
+    A700: $warn,
+  )
+);
 
-// The warn palette is optional (defaults to red).
-$ui-template-warn: mat.define-palette(mat.$red-palette);
+$ui-template-primary: mat.define-palette($primary-palette);
+$ui-template-accent: mat.define-palette($accent-palette);
+$ui-template-warn: mat.define-palette($warn-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
+$custom-typography: mat.define-typography-config(
+  $font-family: ["Roboto", "Helvetica Neue", "sans-serif"]
+);
+
 $ui-template-theme: mat.define-light-theme((
   color: (
     primary: $ui-template-primary,
     accent: $ui-template-accent,
     warn: $ui-template-warn,
+  ),
+  typography: (
+    $custom-typography
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include mat.all-component-themes($ui-template-theme);
 
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
